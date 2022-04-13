@@ -6,8 +6,14 @@ public class PlanetTextureGeneration : MonoBehaviour
 {
     public GameObject sphere;
     public Material material;
+    public TMPro.TextMeshProUGUI scaleText;
+
+    private MeshRenderer meshRenderer;
 
     private float scale = 50.0f;
+    private float redChannel = 1.0f;
+    private float greenChannel = 1.0f;
+    private float blueChannel = 1.0f;
 
     private Texture2D texture;
 
@@ -17,14 +23,15 @@ public class PlanetTextureGeneration : MonoBehaviour
     {
         texture = new Texture2D(texWidth, texHeight, TextureFormat.ARGB32, false);
 
-        generateTexture();
+        regenerateTexture();
 
-        var sphereMeshRen = sphere.GetComponent<MeshRenderer>();
-        sphereMeshRen.material = material;
-        sphereMeshRen.material.mainTexture = texture;
+        meshRenderer = sphere.GetComponent<MeshRenderer>();
+        meshRenderer.material = material;
+        meshRenderer.material.SetTexture("_BumpMap", texture);
+        meshRenderer.material.mainTexture = texture;
     }
 
-    void generateTexture()
+    void regenerateTexture()
     {
         for (int i = 0; i < texHeight; i++)
         {
@@ -33,10 +40,57 @@ public class PlanetTextureGeneration : MonoBehaviour
                 float x = (float)i / (float)texWidth;
                 float y = ((float)j / (float)texHeight);
                 float noise = Mathf.Clamp(Mathf.PerlinNoise(x * scale, y * scale), 0.0f, 1.0f);
-                texture.SetPixel(i, j, new Color(noise, noise, 0.5f, 1.0f));
+                texture.SetPixel(i, j, new Color(noise * redChannel, noise * greenChannel, noise * blueChannel, 1.0f));
             }
         }
         texture.Apply();
+    }
+
+    public void onTypeChange(int value)
+    {
+        if (value == 0)
+        {
+
+        }
+        else if (value == 1)
+        {
+
+        }
+    }
+
+    public void onScaleChange(float value)
+    {
+        scale = value;
+        scaleText.text = value.ToString("0.00");
+        regenerateTexture();
+    }
+
+    public void onRedColorChange(float value)
+    {
+        redChannel = value;
+        regenerateTexture();
+    }
+
+    public void onGreenColorChange(float value)
+    {
+        greenChannel = value;
+        regenerateTexture();
+    }
+
+    public void onBlueColorChange(float value)
+    {
+        blueChannel = value;
+        regenerateTexture();
+    }
+
+    public void onAtmosphereReflectivityChange(float value)
+    {
+        meshRenderer.material.SetFloat("_Glossiness", value);
+    }
+
+    public void onAtmosphereDensityChange(float value)
+    {
+        meshRenderer.material.SetFloat("_Metallic", value);
     }
 
     // Update is called once per frame
