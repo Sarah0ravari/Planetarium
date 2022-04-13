@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlanetTextureGeneration : MonoBehaviour
 {
+    public GameObject sphere;
     public Material material;
 
     private float scale = 50.0f;
@@ -14,24 +15,20 @@ public class PlanetTextureGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        texture = new Texture2D(256, 256, TextureFormat.ARGB32, false);
+        texture = new Texture2D(texWidth, texHeight, TextureFormat.ARGB32, false);
 
         generateTexture();
 
-        var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.localScale = Vector3.one * 6.0f;
         var sphereMeshRen = sphere.GetComponent<MeshRenderer>();
         sphereMeshRen.material = material;
         sphereMeshRen.material.mainTexture = texture;
-
-
     }
 
     void generateTexture()
     {
-        for (int i = 0; i < 256; i++)
+        for (int i = 0; i < texHeight; i++)
         {
-            for (int j = 0; j < 256; j++)
+            for (int j = 0; j < texWidth; j++)
             {
                 float x = (float)i / (float)texWidth;
                 float y = ((float)j / (float)texHeight);
