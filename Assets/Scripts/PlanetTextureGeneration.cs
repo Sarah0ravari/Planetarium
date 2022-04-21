@@ -8,6 +8,15 @@ public class PlanetTextureGeneration : MonoBehaviour
     public Material material;
     public TMPro.TextMeshProUGUI scaleText;
 
+    enum NoiseType
+    {
+        Perlin,
+        Simplex
+    }
+    NoiseType currentNoiseType = NoiseType.Perlin;
+
+    Simplex.Noise simplexNoise = new Simplex.Noise();
+
     private MeshRenderer meshRenderer;
 
     private float scale = 50.0f;
@@ -39,7 +48,15 @@ public class PlanetTextureGeneration : MonoBehaviour
             {
                 float x = (float)i / (float)texWidth;
                 float y = ((float)j / (float)texHeight);
-                float noise = Mathf.Clamp(Mathf.PerlinNoise(x * scale, y * scale), 0.0f, 1.0f);
+                float noise = 1.0f;
+                if (currentNoiseType == NoiseType.Simplex)
+                {
+                    noise = simplexNoise.CalcPixel2D(i, j, 1.0f);
+                }
+                else
+                {
+                    noise = Mathf.Clamp(Mathf.PerlinNoise(x * scale, y * scale), 0.0f, 1.0f);
+                }
                 texture.SetPixel(i, j, new Color(noise * redChannel, noise * greenChannel, noise * blueChannel, 1.0f));
             }
         }
@@ -50,12 +67,13 @@ public class PlanetTextureGeneration : MonoBehaviour
     {
         if (value == 0)
         {
-
+            currentNoiseType = NoiseType.Perlin;
         }
         else if (value == 1)
         {
-
+            currentNoiseType = NoiseType.Simplex;
         }
+        regenerateTexture();
     }
 
     public void onScaleChange(float value)
