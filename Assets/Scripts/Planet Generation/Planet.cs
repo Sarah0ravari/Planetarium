@@ -13,7 +13,7 @@ public class Planet : MonoBehaviour
     TerrainFace[] terrainFaces;
 
     [SerializeField]
-    PlanetSettings settings;
+    public PlanetSettings settings;
     ShapeGenerator shapeGenerator;
 
     private void OnValidate()
@@ -37,7 +37,11 @@ public class Planet : MonoBehaviour
         {
             meshFilters = new MeshFilter[6];
         }
-        terrainFaces = new TerrainFace[6];
+
+        if (terrainFaces == null)
+        {
+            terrainFaces = new TerrainFace[6];
+        }
 
         Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
 
@@ -64,7 +68,7 @@ public class Planet : MonoBehaviour
         GenerateColors();
     }
 
-    void GenerateMesh()
+    public void GenerateMesh()
     {
         foreach (TerrainFace face in terrainFaces)
         {
@@ -72,7 +76,7 @@ public class Planet : MonoBehaviour
         }
     }
 
-    void GenerateColors()
+    public void GenerateColors()
     {
         foreach (MeshFilter filter in meshFilters)
         {
