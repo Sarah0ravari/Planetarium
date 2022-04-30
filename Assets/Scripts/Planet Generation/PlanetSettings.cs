@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class PlanetSettings
 {
+    public Gradient gradient;
+    public Material material;
     //Shape Settings
     [Range(1f, 50f)]
     public float planetRadius = 1;
