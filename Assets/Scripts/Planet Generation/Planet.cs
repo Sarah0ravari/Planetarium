@@ -5,48 +5,24 @@ using UnityEngine;
 public class Planet : MonoBehaviour
 {
     [Range(2, 256)]
-    public int resolution = 10;
+    public int resolution = 128;
+    public Material material;
 
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
 
-    [SerializeField]
-    public PlanetSettings settings;
+    public PlanetSettings settings = new PlanetSettings();
     ShapeGenerator shapeGenerator;
     ColorGenerator colorGenerator;
 
-    private void OnValidate()
+    public void Start()
     {
-        GeneratePlanet();
-    }
-
-    void Initialize()
-    {
-        if (settings == null)
-        {
-            settings = new PlanetSettings();
-        }
-
-        if (shapeGenerator == null)
-        {
-            shapeGenerator = new ShapeGenerator(settings);
-        }
-
-        if (colorGenerator == null)
-        {
-            colorGenerator = new ColorGenerator(settings);
-        }
-
-        if (meshFilters == null || meshFilters.Length == 0)
-        {
-            meshFilters = new MeshFilter[6];
-        }
-
-        if (terrainFaces == null)
-        {
-            terrainFaces = new TerrainFace[6];
-        }
+        settings.material = material;
+        shapeGenerator = new ShapeGenerator(settings);
+        colorGenerator = new ColorGenerator(settings);
+        meshFilters = new MeshFilter[6];
+        terrainFaces = new TerrainFace[6];
 
         Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back };
 
@@ -57,24 +33,27 @@ public class Planet : MonoBehaviour
                 GameObject meshObj = new GameObject("mesh");
                 meshObj.transform.parent = transform;
 
-                meshObj.AddComponent<MeshRenderer>().sharedMaterial = settings.material;
+                meshObj.AddComponent<MeshRenderer>().sharedMaterial = material;
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
             }
 
             terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);
         }
+
+        GeneratePlanet();
     }
 
     void GeneratePlanet()
     {
-        Initialize();
         GenerateMesh();
         GenerateColors();
     }
 
     public void GenerateMesh()
     {
+        shapeGenerator.elevationMinMax.Reset();
+
         foreach (TerrainFace face in terrainFaces)
         {
             face.ConstructMesh();

@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class PlanetSettings
 {
-    public Gradient gradient;
-    public Material material;
     //Shape Settings
-    [Range(1f, 50f)]
-    public float planetRadius = 1;
+    [Range(1f, 5f)]
+    public float planetRadius = 2.5f;
 
     //Color Settings
-    public Color planetColor = Color.white;
+    public Gradient gradient;
+    public Material material;
 
     public NoiseSettings[] noiseSettings;
 
     public PlanetSettings()
     {
-        this.noiseSettings = new NoiseSettings[3];
+        this.noiseSettings = new NoiseSettings[]
+        {
+            new NoiseSettings(),
+            new NoiseSettings(),
+            new NoiseSettings(),
+        };
+        this.gradient = new Gradient();
     }
 
-    [System.Serializable]
     public class NoiseSettings
     {
         public bool enabled = true;

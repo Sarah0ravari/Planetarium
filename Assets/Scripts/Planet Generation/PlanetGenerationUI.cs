@@ -7,6 +7,13 @@ public class PlanetGenerationUI : MonoBehaviour
     public Planet planet;
     public Material material;
     public TMPro.TextMeshProUGUI scaleText;
+    public TMPro.TextMeshProUGUI radiusText;
+
+    public TMPro.TextMeshProUGUI baseStrengthLabel;
+    public TMPro.TextMeshProUGUI baseFrequencyLabel;
+    public TMPro.TextMeshProUGUI baseDetailLabel;
+    public TMPro.TextMeshProUGUI baseDetailFrequencyLabel;
+    public TMPro.TextMeshProUGUI baseAmplitudeLabel;
 
     enum NoiseType
     {
@@ -26,13 +33,7 @@ public class PlanetGenerationUI : MonoBehaviour
     void Start()
     {
         texture = new Texture2D(texWidth, texHeight, TextureFormat.ARGB32, false);
-
         regenerateTexture();
-
-        //meshRenderer = sphere.GetComponent<MeshRenderer>();
-        //meshRenderer.material = material;
-        //meshRenderer.material.SetTexture("_BumpMap", texture);
-        //meshRenderer.material.mainTexture = texture;
     }
 
     void regenerateTexture()
@@ -52,7 +53,8 @@ public class PlanetGenerationUI : MonoBehaviour
                 {
                     noise = Mathf.Clamp(Mathf.PerlinNoise(x * planet.settings.planetRadius, y * planet.settings.planetRadius), 0.0f, 1.0f);
                 }
-                texture.SetPixel(i, j, new Color(noise * planet.settings.planetColor.r, noise * planet.settings.planetColor.g, noise * planet.settings.planetColor.b, 1.0f));
+                Color baseColor = planet.settings.gradient.colorKeys[0].color;
+                texture.SetPixel(i, j, new Color(noise * baseColor.r, noise * baseColor.g, noise * baseColor.b, 1.0f));
             }
         }
         texture.Apply();
@@ -74,29 +76,61 @@ public class PlanetGenerationUI : MonoBehaviour
     public void onScaleChange(float value)
     {
         planet.settings.planetRadius = value;
-        scaleText.text = value.ToString("0.00");
+        scaleText.text = value.ToString("0.0");
         regenerateTexture();
     }
 
-    public void onRedColorChange(float value)
+    public void onRadiusChange(float value)
     {
-        planet.settings.planetColor.r = value;
+        planet.settings.planetRadius = value;
+        radiusText.text = value.ToString("0.0");
+        planet.GenerateMesh();
         planet.GenerateColors();
-        regenerateTexture();
     }
 
-    public void onGreenColorChange(float value)
+    public void onBaseStrengthChange(float value)
     {
-        planet.settings.planetColor.g = value;
+        planet.settings.noiseSettings[0].strength = value;
+        baseStrengthLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
         planet.GenerateColors();
-        regenerateTexture();
+    }
+    public void onBaseFrequencyChange(float value)
+    {
+        planet.settings.noiseSettings[0].baseRoughness = value;
+        baseFrequencyLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
     }
 
-    public void onBlueColorChange(float value)
+    public void onBaseDetailChange(float value)
     {
-        planet.settings.planetColor.b = value;
+        planet.settings.noiseSettings[0].numLayers = (int) value;
+        baseDetailLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
         planet.GenerateColors();
-        regenerateTexture();
+    }
+
+    public void onBaseDetailFrequencyChange(float value)
+    {
+        planet.settings.noiseSettings[0].roughness = value;
+        baseDetailFrequencyLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onBaseAmplitudeChange(float value)
+    {
+        planet.settings.noiseSettings[0].persistance = value;
+        baseAmplitudeLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onBaseColorChange(Color color)
+    {
+        planet.settings.gradient.colorKeys[0].color = color;
+        planet.GenerateColors();
     }
 
     public void onAtmosphereReflectivityChange(float value)
