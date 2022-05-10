@@ -6,17 +6,18 @@ public class SkyBox : MonoBehaviour
 {
     // Start is called before the first frame update
     public Material skyboxSpace, skyboxBright, skyboxDRed, skyboxNRed, skyboxDOrange, skyboxDGreen, skyboxDGreenBlue, skyboxNBlue1, skyboxNBlue2, skyboxNBluePink, skyboxMilky;
-    public GameObject Panel1, Panel2, xButton, sphere;
+    public GameObject Panel1, SkyboxPanel, SavePanel, xButton, sphere;
 
     void Start(){
         Panel1.SetActive(true);
-        Panel2.SetActive(false);
+        SkyboxPanel.SetActive(false);
+        SavePanel.SetActive(false);
         xButton.SetActive(false);
         sphere.SetActive(false);
     }
     public void ChangeSolarClick(){
         Panel1.SetActive(false);
-        Panel2.SetActive(true);
+        SkyboxPanel.SetActive(true);
         xButton.SetActive(true);
     }
     public void ChangeMilky(){
@@ -53,7 +54,8 @@ public class SkyBox : MonoBehaviour
         RenderSettings.skybox = skyboxSpace;
     }
     public void XClick(){
-        Panel2.SetActive(false);
+        SkyboxPanel.SetActive(false);
+        SavePanel.SetActive(false);
         xButton.SetActive(false);
         Panel1.SetActive(true);
     }
