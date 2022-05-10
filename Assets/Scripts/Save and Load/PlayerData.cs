@@ -49,5 +49,8 @@ public void LoadPlayer(){
     position.y = data.position[1];
     position.z = data.position[2];
     transform.position = position;
+
+    //loading the saved skybox
+    RenderSettings.skybox = skybox;
 }
 */
