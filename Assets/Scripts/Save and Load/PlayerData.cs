@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 [System.Serializable] //allows us to save this into a file
 public class PlayerData : MonoBehaviour
 {
     public int level;
     public int health;
     public float[] position;
+    public Material skybox;
 
     //player is a reference to a script containing this data - most likely will be referencing Planet script
     public PlayerData (Player player){
@@ -20,9 +21,12 @@ public class PlayerData : MonoBehaviour
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
+
+        //saving the skybox
+        skybox = RenderSettings.skybox;
     }
 }
-
+*/
 
 /*
 //attributes and methods to be copied to Script containing data to be saved(currently Player script)

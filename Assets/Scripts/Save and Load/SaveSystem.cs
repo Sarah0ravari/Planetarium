@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.IO; //used for files - input output
 using System.Runtime.Serialization.Formatters.Binary; //allows us to access Binary formatters
-
+/*
 public static class SaveSystem
 {
     public static void SavePlayer(Player player){
@@ -34,4 +34,4 @@ public static class SaveSystem
         }else{
             Debug.LogError("Save File not found in" + path);
         }
-}
+}*/
