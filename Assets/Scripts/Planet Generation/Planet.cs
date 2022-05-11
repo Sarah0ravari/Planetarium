@@ -1,3 +1,9 @@
+/*
+ * Based in part on Sebastian Lague's Procedural Planets video series
+ * https://youtu.be/QN39W020LqU
+ * Licensed under the MIT license
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,6 +71,33 @@ public class Planet : MonoBehaviour
     public void GenerateColors()
     {
         colorGenerator.UpdateColors();
+    }
+
+    public void Randomize()
+    {
+        settings.noiseSettings[0].strength = Random.Range(0.0f, 1.0f);
+        settings.noiseSettings[0].numLayers = Random.Range(1, 8);
+        settings.noiseSettings[0].baseRoughness = Random.Range(0.0f, 2.0f);
+        settings.noiseSettings[0].roughness = Random.Range(0.0f, 2.0f);
+        settings.noiseSettings[0].persistance = Random.Range(0.0f, 1.0f);
+        settings.noiseSettings[0].center = new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f));
+
+        settings.noiseSettings[1].strength = Random.value * 2.0f;
+        settings.noiseSettings[1].numLayers = Random.Range(1, 8);
+        settings.noiseSettings[1].baseRoughness = Random.Range(0.0f, 2.0f);
+        settings.noiseSettings[1].roughness = Random.Range(0.0f, 2.0f);
+        settings.noiseSettings[1].persistance = Random.Range(0.0f, 1.0f);
+        settings.noiseSettings[1].center = new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f));
+
+        settings.noiseSettings[2].strength = Random.value * 2.0f;
+        settings.noiseSettings[2].numLayers = Random.Range(1, 8);
+        settings.noiseSettings[2].baseRoughness = Random.Range(0.0f, 2.0f);
+        settings.noiseSettings[2].roughness = Random.Range(0.0f, 2.0f);
+        settings.noiseSettings[2].persistance = Random.Range(0.0f, 1.0f);
+        settings.noiseSettings[2].center = new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f));
+        settings.noiseSettings[2].weightMultiplier = Random.Range(0.1f, 1.0f);
+
+        GeneratePlanet();
     }
 
 }

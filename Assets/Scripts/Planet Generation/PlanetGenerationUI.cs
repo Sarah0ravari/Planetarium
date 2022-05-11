@@ -133,6 +133,112 @@ public class PlanetGenerationUI : MonoBehaviour
         planet.GenerateColors();
     }
 
+    /**
+     * Middle
+     */
+    public void onMidStrengthChange(float value)
+    {
+        planet.settings.noiseSettings[1].strength = value;
+        baseStrengthLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onMidFrequencyChange(float value)
+    {
+        planet.settings.noiseSettings[1].baseRoughness = value;
+        baseFrequencyLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onMidDetailChange(float value)
+    {
+        planet.settings.noiseSettings[1].numLayers = (int) value;
+        baseDetailLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onMidDetailFrequencyChange(float value)
+    {
+        planet.settings.noiseSettings[1].roughness = value;
+        baseDetailFrequencyLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onMidAmplitudeChange(float value)
+    {
+        planet.settings.noiseSettings[1].persistance = value;
+        baseAmplitudeLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onMidColorChange(Color color)
+    {
+        planet.settings.gradient.colorKeys[1].color = color;
+        planet.GenerateColors();
+    }
+
+    /**
+     * Top
+     */
+    public void onTopStrengthChange(float value)
+    {
+        planet.settings.noiseSettings[2].strength = value;
+        baseStrengthLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onTopFrequencyChange(float value)
+    {
+        planet.settings.noiseSettings[2].baseRoughness = value;
+        baseFrequencyLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onTopDetailChange(float value)
+    {
+        planet.settings.noiseSettings[2].numLayers = (int) value;
+        baseDetailLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onTopDetailFrequencyChange(float value)
+    {
+        planet.settings.noiseSettings[2].roughness = value;
+        baseDetailFrequencyLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onTopAmplitudeChange(float value)
+    {
+        planet.settings.noiseSettings[2].persistance = value;
+        baseAmplitudeLabel.text = value.ToString("0.0");
+        planet.GenerateMesh();
+        planet.GenerateColors();
+    }
+
+    public void onTopColorChange(Color color)
+    {
+        planet.settings.gradient.colorKeys[2].color = color;
+        planet.GenerateColors();
+    }
+
+    public void onRandomize()
+    {
+        planet.Randomize();
+    }
+
+    /*
+     * Atmosphere
+     */
     public void onAtmosphereReflectivityChange(float value)
     {
         meshRenderer.material.SetFloat("_Glossiness", value);
