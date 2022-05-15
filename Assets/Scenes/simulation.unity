@@ -4772,6 +4772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040164924}
   - component: {fileID: 1040164923}
+  - component: {fileID: 1040164925}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -4815,6 +4816,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1040164925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040164922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -499960783, guid: c3ab396f3f53d1c4ebc7bae03391b186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FieldsEnable:
+    Version: 2
+    PathsEnabled: []
+    ModificationVersion: 0
+    ComponentsEnabled: []
+    HashFieldsEnabled: []
+    ObjectsEnabled: 
+    HashSetFieldsEnabled:
+      m_buckets: 
+      m_slots: []
+      m_count: 0
+      m_lastIndex: 0
+      m_freeList: -1
+      m_version: 0
+    HashSetObjectsEnabled:
+      m_buckets: 
+      m_slots: []
+      m_count: 0
+      m_lastIndex: 0
+      m_freeList: -1
+      m_version: 0
+    HashSetComponentsEnabled:
+      m_buckets: 
+      m_slots: []
+      m_count: 0
+      m_lastIndex: 0
+      m_freeList: -1
+      m_version: 0
+    AreValidSavedHashs: 0
+  Position: 0
+  Rotation: 0
+  Scale: 0
+  Name: 0
+  Tag: 0
+  Active: 0
+  Static: 0
+  Layer: 0
+  GAMEOBJECT_STATIC_ID: 0
+  GAMEOBJECT_PATH: 
+  Private_prefabId: 440353849
+  PrefabSetTime: 1652572573
+  CreateInRuntime: 0
+  onLoad: 0
 --- !u!1 &1044586572
 GameObject:
   m_ObjectHideFlags: 0
@@ -9497,7 +9553,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 613066883}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.60175
+  m_Size: 0.67993844
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

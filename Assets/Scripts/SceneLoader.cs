@@ -7,25 +7,25 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1;
-    private int scene3Index = 2, scene4Index = 3;
     void Update()
     {
         
     }
+    //Build Settings Scenes: 0Menu 1Main 2Simulation 3Solar
     public void LoadNextScene(){
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void TextGenScene(){
-        StartCoroutine(LoadScene(1));
+        StartCoroutine(LoadScene(2));
     }
     public void MainScene(){
+        StartCoroutine(LoadScene(1));
+    }
+    public void MenuScene(){
         StartCoroutine(LoadScene(0));
     }
-    public void Scene3Scene(){
-        StartCoroutine(LoadScene(scene3Index));
-    }
-    public void Scene4Scene(){
-        StartCoroutine(LoadScene(scene4Index));
+    public void SolarScene(){
+        StartCoroutine(LoadScene(3));
     }
 
     IEnumerator LoadScene(int sceneIndex){
