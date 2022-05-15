@@ -8427,7 +8427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 1040164923}
-  material: {fileID: 2100000, guid: b3f1f3db18bdf6e4996d3b96ace8d383, type: 2}
   scaleText: {fileID: 1995959669}
   radiusText: {fileID: 316594241}
   baseStrengthLabel: {fileID: 1995959669}
@@ -9713,6 +9712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 128
   material: {fileID: 2100000, guid: 5c4709e333e183040b6cdb027367199a, type: 2}
+  athmo_mat: {fileID: 2100000, guid: b3f1f3db18bdf6e4996d3b96ace8d383, type: 2}
   meshFilters:
   - {fileID: 0}
   - {fileID: 0}
