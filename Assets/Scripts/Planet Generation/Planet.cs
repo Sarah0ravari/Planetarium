@@ -10,7 +10,6 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
-    [Range(2, 256)]
     public int resolution = 128;
     public Material material;
 
