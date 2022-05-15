@@ -4870,6 +4870,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2130943084915617136, guid: 4214b57e615806c448ba9d993d629531, type: 3}
+      propertyPath: startingColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130943084915617136, guid: 4214b57e615806c448ba9d993d629531, type: 3}
+      propertyPath: startingColor.g
+      value: 0.18120718
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130943084915617136, guid: 4214b57e615806c448ba9d993d629531, type: 3}
+      propertyPath: startingColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130943084915617136, guid: 4214b57e615806c448ba9d993d629531, type: 3}
       propertyPath: onColorChange.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -8428,6 +8440,7 @@ MonoBehaviour:
   baseDetailFrequencySlider: {fileID: 5098850}
   baseAmplitudeLabel: {fileID: 1100369502}
   baseAmplitudeSlider: {fileID: 97301525}
+  baseColor: {fileID: 1934280904}
   midStrengthLabel: {fileID: 792715445}
   midStrengthSlider: {fileID: 1103851928}
   midFrequencyLabel: {fileID: 1551775663}
@@ -8438,6 +8451,7 @@ MonoBehaviour:
   midDetailFrequencySlider: {fileID: 2103398749}
   midAmplitudeLabel: {fileID: 1749680194}
   midAmplitudeSlider: {fileID: 1560451781}
+  midColor: {fileID: 1971586979}
   topStrengthLabel: {fileID: 1439052345}
   topStrengthSlider: {fileID: 1939906760}
   topFrequencyLabel: {fileID: 1574491632}
@@ -8448,6 +8462,7 @@ MonoBehaviour:
   topDetailFrequencySlider: {fileID: 705982179}
   topAmplitudeLabel: {fileID: 545568598}
   topAmplitudeSlider: {fileID: 2060811733}
+  topColor: {fileID: 2137393234}
 --- !u!4 &914190697
 Transform:
   m_ObjectHideFlags: 0
@@ -15524,8 +15539,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Gas Giant
       m_Image: {fileID: 0}
-    - m_Text: Super-Earth
-      m_Image: {fileID: 0}
     - m_Text: Neptune-Like
       m_Image: {fileID: 0}
   m_OnValueChanged:
@@ -16755,6 +16768,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2130943084915617137, guid: 4214b57e615806c448ba9d993d629531, type: 3}
   m_PrefabInstance: {fileID: 609399594}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1934280904 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2130943084915617136, guid: 4214b57e615806c448ba9d993d629531, type: 3}
+  m_PrefabInstance: {fileID: 609399594}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31629c56f6f83234a90f6296f902f9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1938706157
 GameObject:
   m_ObjectHideFlags: 0
@@ -17258,6 +17282,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971436227}
   m_CullTransparentMesh: 1
+--- !u!114 &1971586979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2130943084915617136, guid: 4214b57e615806c448ba9d993d629531, type: 3}
+  m_PrefabInstance: {fileID: 511258563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31629c56f6f83234a90f6296f902f9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1973999923
 GameObject:
   m_ObjectHideFlags: 0
@@ -19221,3 +19256,14 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129624956}
   m_CullTransparentMesh: 1
+--- !u!114 &2137393234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2130943084915617136, guid: 4214b57e615806c448ba9d993d629531, type: 3}
+  m_PrefabInstance: {fileID: 513683711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31629c56f6f83234a90f6296f902f9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

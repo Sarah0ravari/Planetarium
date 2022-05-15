@@ -21,6 +21,7 @@ public class PlanetGenerationUI : MonoBehaviour
     public Slider baseDetailFrequencySlider;
     public TMPro.TextMeshProUGUI baseAmplitudeLabel;
     public Slider baseAmplitudeSlider;
+    public FlexibleColorPicker baseColor;
 
     [Header("Mid")]
     public TMPro.TextMeshProUGUI midStrengthLabel;
@@ -33,6 +34,7 @@ public class PlanetGenerationUI : MonoBehaviour
     public Slider midDetailFrequencySlider;
     public TMPro.TextMeshProUGUI midAmplitudeLabel;
     public Slider midAmplitudeSlider;
+    public FlexibleColorPicker midColor;
 
     [Header("Top")]
     public TMPro.TextMeshProUGUI topStrengthLabel;
@@ -45,6 +47,7 @@ public class PlanetGenerationUI : MonoBehaviour
     public Slider topDetailFrequencySlider;
     public TMPro.TextMeshProUGUI topAmplitudeLabel;
     public Slider topAmplitudeSlider;
+    public FlexibleColorPicker topColor;
 
     enum NoiseType
     {
@@ -160,7 +163,8 @@ public class PlanetGenerationUI : MonoBehaviour
 
     public void onBaseColorChange(Color color)
     {
-        planet.settings.gradient.colorKeys[0].color = color;
+        planet.settings.colorKeys[0].color = color;
+        planet.settings.gradient.SetKeys(planet.settings.colorKeys, planet.settings.alphaKeys);
         planet.GenerateColors();
     }
 
@@ -209,7 +213,8 @@ public class PlanetGenerationUI : MonoBehaviour
 
     public void onMidColorChange(Color color)
     {
-        planet.settings.gradient.colorKeys[1].color = color;
+        planet.settings.colorKeys[1].color = color;
+        planet.settings.gradient.SetKeys(planet.settings.colorKeys, planet.settings.alphaKeys);
         planet.GenerateColors();
     }
 
@@ -258,7 +263,8 @@ public class PlanetGenerationUI : MonoBehaviour
 
     public void onTopColorChange(Color color)
     {
-        planet.settings.gradient.colorKeys[2].color = color;
+        planet.settings.colorKeys[2].color = color;
+        planet.settings.gradient.SetKeys(planet.settings.colorKeys, planet.settings.alphaKeys);
         planet.GenerateColors();
     }
 
