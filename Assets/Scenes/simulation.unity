@@ -9691,6 +9691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040164924}
   - component: {fileID: 1040164923}
+  - component: {fileID: 1040164925}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
