@@ -10,6 +10,8 @@ public class PlanetSettings
 
     //Color Settings
     public Gradient gradient;
+    public GradientColorKey[] colorKeys;
+    public GradientAlphaKey[] alphaKeys;
     public Material material;
 
     public NoiseSettings[] noiseSettings;
@@ -22,7 +24,26 @@ public class PlanetSettings
             new NoiseSettings(),
             new NoiseSettings(),
         };
+
+        this.noiseSettings[1].useFirstLayerAsMask = true;
+        this.noiseSettings[2].useFirstLayerAsMask= true;
+
         this.gradient = new Gradient();
+        this.colorKeys = new GradientColorKey[3];
+        this.colorKeys[0].color = Color.white;
+        this.colorKeys[0].time = 0.0f;
+        this.colorKeys[1].color = Color.gray;
+        this.colorKeys[1].time = 0.5f;
+        this.colorKeys[2].color = Color.black;
+        this.colorKeys[2].time = 1.0f;
+
+        this.alphaKeys = new GradientAlphaKey[2];
+        this.alphaKeys[0].alpha = 1.0f;
+        this.alphaKeys[0].time = 0.0f;
+        this.alphaKeys[1].alpha = 1.0f;
+        this.alphaKeys[1].time = 1.0f;
+
+        this.gradient.SetKeys(this.colorKeys, this.alphaKeys);
     }
 
     public class NoiseSettings
