@@ -1683,7 +1683,7 @@ RectTransform:
   - {fileID: 2100584948}
   - {fileID: 513683712}
   m_Father: {fileID: 650862062}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3453,7 +3453,7 @@ RectTransform:
   - {fileID: 861292115}
   - {fileID: 511258564}
   m_Father: {fileID: 650862062}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3776,7 +3776,7 @@ RectTransform:
   m_Children:
   - {fileID: 745532290}
   m_Father: {fileID: 650862062}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5663,12 +5663,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1604849378}
+  - {fileID: 492646520}
   - {fileID: 1982984269}
   - {fileID: 974533469}
   - {fileID: 428917091}
   - {fileID: 236260874}
   - {fileID: 2007220599}
-  - {fileID: 492646520}
   m_Father: {fileID: 1974093303}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8419,10 +8419,35 @@ MonoBehaviour:
   scaleText: {fileID: 1995959669}
   radiusText: {fileID: 316594241}
   baseStrengthLabel: {fileID: 1995959669}
+  baseStrengthSlider: {fileID: 1925208648}
   baseFrequencyLabel: {fileID: 2129624958}
+  baseFrequencySlider: {fileID: 781597594}
   baseDetailLabel: {fileID: 692417489}
+  baseDetailSlider: {fileID: 655813869}
   baseDetailFrequencyLabel: {fileID: 323229892}
+  baseDetailFrequencySlider: {fileID: 5098850}
   baseAmplitudeLabel: {fileID: 1100369502}
+  baseAmplitudeSlider: {fileID: 97301525}
+  midStrengthLabel: {fileID: 792715445}
+  midStrengthSlider: {fileID: 1103851928}
+  midFrequencyLabel: {fileID: 1551775663}
+  midFrequencySlider: {fileID: 684008523}
+  midDetailLabel: {fileID: 899527294}
+  midDetailSlider: {fileID: 1043082343}
+  midDetailFrequencyLabel: {fileID: 999075827}
+  midDetailFrequencySlider: {fileID: 2103398749}
+  midAmplitudeLabel: {fileID: 1749680194}
+  midAmplitudeSlider: {fileID: 1560451781}
+  topStrengthLabel: {fileID: 1439052345}
+  topStrengthSlider: {fileID: 1939906760}
+  topFrequencyLabel: {fileID: 1574491632}
+  topFrequencySlider: {fileID: 1623910493}
+  topDetailLabel: {fileID: 927201282}
+  topDetailSlider: {fileID: 320429055}
+  topDetailFrequencyLabel: {fileID: 1229843221}
+  topDetailFrequencySlider: {fileID: 705982179}
+  topAmplitudeLabel: {fileID: 545568598}
+  topAmplitudeSlider: {fileID: 2060811733}
 --- !u!4 &914190697
 Transform:
   m_ObjectHideFlags: 0
@@ -8783,7 +8808,7 @@ RectTransform:
   - {fileID: 1228794200}
   - {fileID: 1934280903}
   m_Father: {fileID: 650862062}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17473,7 +17498,7 @@ RectTransform:
   - {fileID: 1263993444}
   - {fileID: 1389287687}
   m_Father: {fileID: 650862062}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17738,7 +17763,7 @@ RectTransform:
   - {fileID: 2035084063}
   - {fileID: 830634775}
   m_Father: {fileID: 650862062}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
