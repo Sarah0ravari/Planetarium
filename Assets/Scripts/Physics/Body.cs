@@ -5,6 +5,7 @@ using UnityEngine;
 public class Body : MonoBehaviour {
     public float Mass = 1;
     public Vector3 Velocity;
+    public bool EnabledOrbitVisual;
     private const float G = 6.673e-11F;   // gravitational constant
     private Vector3 force;
 

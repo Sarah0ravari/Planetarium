@@ -8,34 +8,49 @@ public class OrbitVisualizer : MonoBehaviour {
     public int NumSteps = 0;
     private List<Body> bodies;
     private List<Body> bodyCopies;
+    private Vector3[][] positionsByStep;
 
-    void OnUpdate() {
+    void FixedUpdate() {
         if (!Enabled) return;
-        bodyCopies = new List<Body>();
-        foreach (Body body in bodies) {
-            bodyCopies.Add(Object.Instantiate(body.gameObject).AddComponent<LineRenderer>().GetComponent<Body>());
-        }
-        Vector3[][] positionsByStep = new Vector3[bodyCopies.Count][];
+        positionsByStep = new Vector3[bodyCopies.Count][];
         for (int i = 0; i < positionsByStep.Length; i++) {
             positionsByStep[i] = new Vector3[NumSteps];
         }
-        for (int i = 0; i < NumSteps; i++) {
+        for (int step = 0; step < NumSteps; step++) {
             PhysicsSimulation.AddForces(bodyCopies);
             PhysicsSimulation.UpdateVelocities(bodyCopies, Dt);
             PhysicsSimulation.UpdatePositions(bodyCopies, Dt);
-            for (int j = 0; j < bodyCopies.Count; j++) {
-                positionsByStep[j][i] = bodyCopies[j].transform.position;
+            for (int body = 0; body < bodyCopies.Count; body++) {
+                positionsByStep[body][step] = bodyCopies[body].transform.position;
             }
         }
-        for (int i = 0; i < bodyCopies.Count; i++) {
-            bodyCopies[i].GetComponent<LineRenderer>().SetPositions(positionsByStep[i]);
+        for (int body = 0; body < bodyCopies.Count; body++) {
+            LineRenderer line = bodyCopies[body].GetComponent<LineRenderer>();
+            if (bodies[body].EnabledOrbitVisual) {
+                line.positionCount = NumSteps;
+                line.SetPositions(positionsByStep[body]);
+            } else {
+                line.positionCount = 0;
+            }
         }
-        foreach (Body body in bodyCopies) {
-            Object.Destroy(body);
+        for (int body = 0; body < bodyCopies.Count; body++) {
+            bodyCopies[body].transform.position = bodies[body].transform.position;
+            bodyCopies[body].Velocity = bodies[body].Velocity;
         }
     }
 
     void Start() {
         bodies = new List<Body>(gameObject.GetComponentsInChildren<Body>());
+        bodyCopies = new List<Body>();
+        for (int i = 0; i < bodies.Count; i++) {
+            bodyCopies.Add(Object.Instantiate(bodies[i].gameObject).GetComponent<Body>());
+            LineRenderer line = bodyCopies[i].gameObject.AddComponent<LineRenderer>();
+            line.startWidth = 0.1f;
+            line.endWidth = 0.1f;
+            line.startColor = Color.white;
+            line.endColor = Color.white;
+            Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
+            line.material = whiteDiffuseMat;
+        }
     }
 }
