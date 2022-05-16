@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlanetGenerationUI : MonoBehaviour
 {
-    public Planet planet;
+    private Planet planet;
+    public Material planetMaterial;
+    public Material atmosphereMaterial;
     public TMPro.TextMeshProUGUI scaleText;
     public TMPro.TextMeshProUGUI radiusText;
 
@@ -53,6 +56,14 @@ public class PlanetGenerationUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject obj = new GameObject();
+        obj.name = "Planet" + Random.Range(0, 999).ToString();
+        planet = obj.AddComponent<Planet>();
+        planet.material = this.planetMaterial;
+        planet.atmosphereMaterial = this.atmosphereMaterial;
+
+        var viewControls = Camera.main.GetComponent<GlobeViewControls>();
+        viewControls.globe = obj.transform;
     }
 
     public void onScaleChange(float value)
@@ -110,6 +121,8 @@ public class PlanetGenerationUI : MonoBehaviour
 
     public void onBaseColorChange(Color color)
     {
+        if (planet is null) return;
+
         planet.settings.colorKeys[0].color = color;
         planet.settings.gradient.SetKeys(planet.settings.colorKeys, planet.settings.alphaKeys);
         planet.GenerateColors();
@@ -160,6 +173,8 @@ public class PlanetGenerationUI : MonoBehaviour
 
     public void onMidColorChange(Color color)
     {
+        if (planet is null) return;
+
         planet.settings.colorKeys[1].color = color;
         planet.settings.gradient.SetKeys(planet.settings.colorKeys, planet.settings.alphaKeys);
         planet.GenerateColors();
@@ -210,6 +225,8 @@ public class PlanetGenerationUI : MonoBehaviour
 
     public void onTopColorChange(Color color)
     {
+        if (planet is null) return;
+
         planet.settings.colorKeys[2].color = color;
         planet.settings.gradient.SetKeys(planet.settings.colorKeys, planet.settings.alphaKeys);
         planet.GenerateColors();
@@ -218,6 +235,12 @@ public class PlanetGenerationUI : MonoBehaviour
     public void onRandomize()
     {
         planet.Randomize(this);
+    }
+
+    public void onCreate()
+    {
+        PlanetariumControl.Instance.newPlanet = planet;
+        SceneManager.LoadScene(1);
     }
 
     /*

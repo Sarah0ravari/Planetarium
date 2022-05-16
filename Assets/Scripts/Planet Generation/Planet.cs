@@ -12,7 +12,7 @@ public class Planet : MonoBehaviour
 {
     public int resolution = 128;
     public Material material;
-    public Material athmo_mat;
+    public Material atmosphereMaterial;
 
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
@@ -22,11 +22,16 @@ public class Planet : MonoBehaviour
     ShapeGenerator shapeGenerator;
     ColorGenerator colorGenerator;
 
-    int texWidth = 1024, texHeight = 512;
+    int texWidth = 1024, texHeight = 1024;
     private Texture2D athmo_texture;
     Transform athmo;
 
     bool generationEnabled = true;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this); 
+    }
 
     public void Start()
     {
@@ -57,8 +62,8 @@ public class Planet : MonoBehaviour
         
         athmo = GameObject.CreatePrimitive(PrimitiveType.Sphere).transform;
         athmo.transform.parent = transform;
-        athmo.transform.localScale = Vector3.one * this.settings.planetRadius * 2.1f;
-        athmo.GetComponent<MeshRenderer>().material = athmo_mat;
+        athmo.transform.localScale = Vector3.one * this.settings.planetRadius * 2.05f;
+        athmo.GetComponent<MeshRenderer>().material = atmosphereMaterial;
         athmo.GetComponent<MeshRenderer>().material.mainTexture = athmo_texture;
 
         GeneratePlanet();
@@ -73,11 +78,11 @@ public class Planet : MonoBehaviour
                 float x = (float)i / (float)texWidth;
                 float y = ((float)j / (float)texHeight);
                 float noise = 1.0f;
-                noise = Mathf.Clamp(Mathf.PerlinNoise(x * 8.0f, y * 8.0f), 0.0f, 1.0f);
+                noise = Mathf.Clamp(Mathf.PerlinNoise(x * 10.0f, y * 10.0f), 0.0f, 1.0f);
 
                 Color baseColor = Color.white;
                 float val = noise;
-                val = val < 0.2f ? 0.0f : val * 0.8f;
+                val = val < 0.8f ? 0.0f : val * 0.25f;
                 athmo_texture.SetPixel(i, j, new Color(baseColor.r, baseColor.g, baseColor.b, val));
             }
         }

@@ -7,6 +7,15 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1;
+
+    private void Awake()
+    {
+        if (PlanetariumControl.Instance is null)
+        {
+            GameObject go = new GameObject();
+            PlanetariumControl pc = go.AddComponent<PlanetariumControl>();
+        }
+    }
     void Update()
     {
         
