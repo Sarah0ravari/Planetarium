@@ -7,6 +7,8 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1;
+    public Material planetMaterial;
+    public Material atmosphereMaterial;
 
     private void Awake()
     {
@@ -14,6 +16,8 @@ public class SceneLoader : MonoBehaviour
         {
             GameObject go = new GameObject();
             PlanetariumControl pc = go.AddComponent<PlanetariumControl>();
+            pc.planetMaterial = planetMaterial;
+            pc.atmosphereMaterial = atmosphereMaterial;
         }
     }
     void Update()

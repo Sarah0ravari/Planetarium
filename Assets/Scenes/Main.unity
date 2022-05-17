@@ -1336,8 +1336,8 @@ MonoBehaviour:
     currentTimeToSave: 0
     encryptionConfig: 0
   Load_Prefabs:
-  - {fileID: 114722586552158970, guid: c3e13744cd05ba44f804034e9cde30da, type: 3}
   - {fileID: 114232354994320794, guid: 9d3e55a541d678e45932325c90a1a94b, type: 3}
+  - {fileID: 114722586552158970, guid: c3e13744cd05ba44f804034e9cde30da, type: 3}
 --- !u!114 &298447667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1404,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 162.0412, y: 107.292}
+  m_SizeDelta: {x: 162.0412, y: 109.1409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305942599
 MonoBehaviour:
@@ -2687,8 +2687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187f48a809df42cd1aad162aca8708de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Paused: 0
-  Dt: 100000000
+  Paused: 1
+  Dt: 100000
+  bodies: []
 --- !u!4 &701492042
 Transform:
   m_ObjectHideFlags: 0
@@ -2697,7 +2698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701492040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 954.29767, y: 398.26013, z: -3.4595327}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3147,7 +3148,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 162.0412, y: 107.292}
+  m_SizeDelta: {x: 162.0412, y: 109.1409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863889239
 MonoBehaviour:
@@ -4112,7 +4113,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 162.0412, y: 107.292}
+  m_SizeDelta: {x: 162.0412, y: 109.1409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1211209105
 MonoBehaviour:
@@ -4733,7 +4734,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 162.0412, y: 107.292}
+  m_SizeDelta: {x: 162.0412, y: 109.1409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348609770
 MonoBehaviour:
@@ -4893,8 +4894,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 100000
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4920,7 +4921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363337529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4934,7 +4935,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363337529}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6304e8cb58b12ef41815aa7b4b1967f5, type: 3}
   m_Name: 
@@ -5415,7 +5416,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 162.0412, y: 107.292}
+  m_SizeDelta: {x: 162.0412, y: 109.1409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628263320
 MonoBehaviour:
@@ -5668,7 +5669,6 @@ MonoBehaviour:
   Panel1: {fileID: 2064313097}
   SkyboxPanel: {fileID: 2017262166}
   xButton: {fileID: 313024201}
-  sphere: {fileID: 0}
 --- !u!4 &1671366103
 Transform:
   m_ObjectHideFlags: 0
@@ -7544,7 +7544,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 162.0412, y: 107.292}
+  m_SizeDelta: {x: 162.0412, y: 109.1409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133289758
 MonoBehaviour:
@@ -7647,6 +7647,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5944811980305381864, guid: d987ba80b6bf9e04da9d554f9d28ed3f, type: 3}
+      propertyPath: planetMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c4709e333e183040b6cdb027367199a, type: 2}
+    - target: {fileID: 5944811980305381864, guid: d987ba80b6bf9e04da9d554f9d28ed3f, type: 3}
+      propertyPath: atmosphereMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: b3f1f3db18bdf6e4996d3b96ace8d383, type: 2}
     - target: {fileID: 5944811980305381865, guid: d987ba80b6bf9e04da9d554f9d28ed3f, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -28,14 +28,9 @@ public class Planet : MonoBehaviour
 
     bool generationEnabled = true;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this); 
-    }
-
     public void Start()
     {
-        settings.material = material;
+        settings.material = new Material(material);
         shapeGenerator = new ShapeGenerator(settings);
         colorGenerator = new ColorGenerator(settings);
         meshFilters = new MeshFilter[6];
@@ -50,7 +45,7 @@ public class Planet : MonoBehaviour
                 GameObject meshObj = new GameObject("mesh");
                 meshObj.transform.parent = transform;
 
-                meshObj.AddComponent<MeshRenderer>().sharedMaterial = material;
+                meshObj.AddComponent<MeshRenderer>().sharedMaterial = settings.material;
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
             }

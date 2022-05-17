@@ -6,13 +6,12 @@ public class SkyBox : MonoBehaviour
 {
     // Start is called before the first frame update
     public Material skyboxSpace, skyboxBright, skyboxDRed, skyboxNRed, skyboxDOrange, skyboxDGreen, skyboxDGreenBlue, skyboxNBlue1, skyboxNBlue2, skyboxNBluePink, skyboxMilky;
-    public GameObject Panel1, SkyboxPanel, xButton, sphere;
+    public GameObject Panel1, SkyboxPanel, xButton;
 
     void Start(){
         Panel1.SetActive(true);
         SkyboxPanel.SetActive(false);
         xButton.SetActive(false);
-        sphere.SetActive(false);
     }
     public void ChangeSolarClick(){
         Panel1.SetActive(false);

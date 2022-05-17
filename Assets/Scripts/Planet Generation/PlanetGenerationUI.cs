@@ -57,7 +57,6 @@ public class PlanetGenerationUI : MonoBehaviour
     void Start()
     {
         GameObject obj = new GameObject();
-        obj.name = "Planet" + Random.Range(0, 999).ToString();
         planet = obj.AddComponent<Planet>();
         planet.material = this.planetMaterial;
         planet.atmosphereMaterial = this.atmosphereMaterial;
@@ -239,7 +238,8 @@ public class PlanetGenerationUI : MonoBehaviour
 
     public void onCreate()
     {
-        PlanetariumControl.Instance.newPlanet = planet;
+        string planetJSON = JsonUtility.ToJson(planet.settings);
+        PlanetariumControl.Instance.newPlanetSettings = planetJSON;
         SceneManager.LoadScene(1);
     }
 
