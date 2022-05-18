@@ -188,4 +188,12 @@ public class Planet : MonoBehaviour
         GeneratePlanet();
     }
 
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            PlanetariumControl.Instance.selectedPlanet = this;
+        }
+    }
+
 }
