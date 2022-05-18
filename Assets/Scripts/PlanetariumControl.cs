@@ -15,6 +15,9 @@ public class PlanetariumControl : MonoBehaviour
     public ArrayList planetSettings;
     public string newPlanetSettings;
 
+    public Vector3 cameraPosition;
+    public Quaternion cameraRotation;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject); 
@@ -24,6 +27,10 @@ public class PlanetariumControl : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnUpdate() {
+        
     }
 
     public PlanetariumControl()
@@ -47,6 +54,8 @@ public class PlanetariumControl : MonoBehaviour
                 newPlanetSettings = null;
             }
 
+            Camera.main.transform.position = cameraPosition;
+            Camera.main.transform.rotation = cameraRotation;
             CreatePlanets();
         }
     }
@@ -58,6 +67,7 @@ public class PlanetariumControl : MonoBehaviour
             PlanetSettings planetSettings = JsonUtility.FromJson<PlanetSettings>(planetJSON);
 
             GameObject obj = new GameObject();
+            obj.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 10;
             Planet planet = obj.AddComponent<Planet>();
             planet.settings = planetSettings;
             planet.material = this.planetMaterial;
@@ -72,8 +82,6 @@ public class PlanetariumControl : MonoBehaviour
             obj.gameObject.AddComponent<RotateAround>();
             obj.gameObject.AddComponent<PlanetGUI>();
 
-            obj.transform.parent = simulation.transform;
-            obj.transform.position = new Vector3(Random.Range(0, 400), 0, 0);
             simulation.bodies.Add(body);
 
             planet.GenerateColors();

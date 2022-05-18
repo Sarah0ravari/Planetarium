@@ -28,10 +28,6 @@ public class PhysicsSimulation : MonoBehaviour {
         }
     }
 
-    void Start() {
-        bodies = new List<Body>(gameObject.GetComponentsInChildren<Body>());
-    }
-
     void FixedUpdate() {
         if (Paused) return; 
         AddForces(bodies);

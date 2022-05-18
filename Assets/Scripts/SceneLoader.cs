@@ -29,6 +29,8 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void TextGenScene(){
+        PlanetariumControl.Instance.cameraPosition = Camera.main.transform.position;
+        PlanetariumControl.Instance.cameraRotation = Camera.main.transform.rotation;
         StartCoroutine(LoadScene(2));
     }
     public void MainScene(){
