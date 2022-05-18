@@ -3564,6 +3564,7 @@ MonoBehaviour:
   Dt: 10000000
   StepsPerUpdate: 1000
   bodies: []
+  ps: {fileID: 701492041}
 --- !u!4 &701492042
 Transform:
   m_ObjectHideFlags: 0
@@ -5431,9 +5432,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 701492040}
-        m_TargetAssemblyTypeName: SkyBox, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 701492041}
+        m_TargetAssemblyTypeName: PhysicsSimulation, Assembly-CSharp
+        m_MethodName: OnPlayPausePhysics
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

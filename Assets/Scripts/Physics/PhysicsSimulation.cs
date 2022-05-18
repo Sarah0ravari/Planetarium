@@ -7,7 +7,15 @@ public class PhysicsSimulation : MonoBehaviour {
     public float Dt = 100000;
     public int StepsPerUpdate = 1000;
     public List<Body> bodies;
+    public PhysicsSimulation ps;
 
+    public void OnPlayPausePhysics(){
+        if(Paused == true){
+            Paused = false;
+        }else{
+            Paused = true;
+        }
+    }
     public static void AddForces(List<Body> bodies) {
         for (int i = 0; i < bodies.Count; i++) {
             bodies[i].ResetForce();
