@@ -9,8 +9,9 @@ public class Body : MonoBehaviour {
     public bool EnabledOrbitVisual;
     private const float G = 6.673e-11F;   // gravitational constant
     private Vector3 force;
+
     public void UpdateVelocity(float dt) {
-        Velocity += dt * force / Mass;
+        Velocity += (dt * force / Mass) * 1e9F;
     }
     public void UpdateVelocityX(float newx) {
         Velocity.z = newx;
@@ -32,7 +33,7 @@ public class Body : MonoBehaviour {
     }
 
     public void UpdatePosition(float dt) {
-        transform.position += dt * Velocity;
+        transform.position += dt * (Velocity * 1e-9F);
     }
 
     public float DistanceTo(Body b) {

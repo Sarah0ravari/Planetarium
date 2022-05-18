@@ -8,6 +8,7 @@ public class PlanetariumControl : MonoBehaviour
 {
     public static PlanetariumControl Instance { get; private set; }
     public PhysicsSimulation simulation;
+    public OrbitVisualizer orbitVisualizer;
 
     public Material planetMaterial;
     public Material atmosphereMaterial;
@@ -32,10 +33,6 @@ public class PlanetariumControl : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnUpdate() {
-        
-    }
-
     public PlanetariumControl()
     {
         planetSettings = new ArrayList();
@@ -52,6 +49,7 @@ public class PlanetariumControl : MonoBehaviour
             if (go is not null)
             {
                 simulation = go.GetComponent<PhysicsSimulation>();
+                orbitVisualizer = go.GetComponent<OrbitVisualizer>();
             }
 
             if (newPlanetSettings is not null)
@@ -85,6 +83,8 @@ public class PlanetariumControl : MonoBehaviour
             body.Mass = Random.Range(1, 100);
             body.Velocity = new Vector3(0, 0, 0);
             simulation.bodies.Add(body);
+            orbitVisualizer.addBody(body);
+
 
             Rigidbody rb = obj.AddComponent<Rigidbody>();
             rb.isKinematic = true;
