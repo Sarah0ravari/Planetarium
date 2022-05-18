@@ -69,6 +69,8 @@ public class PlanetariumControl : MonoBehaviour
 
             obj.gameObject.AddComponent<SaveIsEasyComponent>();
             obj.gameObject.AddComponent<ChangeLookAtTarget>();
+            obj.gameObject.AddComponent<RotateAround>();
+            obj.gameObject.AddComponent<PlanetGUI>();
 
             obj.transform.parent = simulation.transform;
             obj.transform.position = new Vector3(Random.Range(0, 400), 0, 0);
