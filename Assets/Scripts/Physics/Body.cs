@@ -54,6 +54,7 @@ public class Body : MonoBehaviour {
         float EPS = 3E4F;      // softening parameter (just to avoid infinities)
         Vector3 diff = b.transform.position - transform.position;
         float dist = DistanceTo(b);
+        if (dist == 0.0f) return;
         float F = (G * Mass * b.Mass) / (dist*dist + EPS*EPS);
         force += F * diff / dist;
     }
