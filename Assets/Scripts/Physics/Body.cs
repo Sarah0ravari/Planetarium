@@ -12,6 +12,15 @@ public class Body : MonoBehaviour {
     public void UpdateVelocity(float dt) {
         Velocity += dt * force / Mass;
     }
+    public void UpdateVelocityX(float newx) {
+        Velocity.z = newx;
+    }
+    public void UpdateVelocityY(float newy) {
+        Velocity.z = newy;
+    }
+    public void UpdateVelocityZ(float newz) {
+        Velocity.z = newz;
+    }
 
     public void UpdatePosition(float dt) {
         transform.position += dt * Velocity;
@@ -23,6 +32,10 @@ public class Body : MonoBehaviour {
 
     public void ResetForce() {
         force = Vector3.zero;
+    }
+    //added for slider
+    public void AdjustMass(float newMass){
+        Mass = newMass;
     }
 
     // compute the net force acting between the body a and b, and

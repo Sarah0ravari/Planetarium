@@ -5,7 +5,7 @@ using UnityEngine;
 public class PhysicsSimulation : MonoBehaviour {
     public bool Paused = true;
     public float Dt = 100000000;
-    private List<Body> bodies;
+    public List<Body> bodies;
 
     public static void AddForces(List<Body> bodies) {
         for (int i = 0; i < bodies.Count; i++) {
@@ -26,10 +26,6 @@ public class PhysicsSimulation : MonoBehaviour {
         for (int i = 0; i < bodies.Count; i++) {
             bodies[i].UpdatePosition(dt);
         }
-    }
-
-    void Start() {
-        bodies = new List<Body>(gameObject.GetComponentsInChildren<Body>());
     }
 
     void FixedUpdate() {

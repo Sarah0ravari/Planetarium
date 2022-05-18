@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PlanetSettings
 {
     //Shape Settings
@@ -46,6 +48,7 @@ public class PlanetSettings
         this.gradient.SetKeys(this.colorKeys, this.alphaKeys);
     }
 
+    [Serializable]
     public class NoiseSettings
     {
         public bool enabled = true;

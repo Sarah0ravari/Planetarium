@@ -7,6 +7,19 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1;
+    public Material planetMaterial;
+    public Material atmosphereMaterial;
+
+    private void Awake()
+    {
+        if (PlanetariumControl.Instance is null)
+        {
+            GameObject go = new GameObject();
+            PlanetariumControl pc = go.AddComponent<PlanetariumControl>();
+            pc.planetMaterial = planetMaterial;
+            pc.atmosphereMaterial = atmosphereMaterial;
+        }
+    }
     void Update()
     {
         
@@ -16,6 +29,8 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void TextGenScene(){
+        PlanetariumControl.Instance.cameraPosition = Camera.main.transform.position;
+        PlanetariumControl.Instance.cameraRotation = Camera.main.transform.rotation;
         StartCoroutine(LoadScene(2));
     }
     public void MainScene(){
