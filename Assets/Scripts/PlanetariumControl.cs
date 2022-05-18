@@ -20,6 +20,8 @@ public class PlanetariumControl : MonoBehaviour
     public Vector3 cameraPosition;
     public Quaternion cameraRotation;
 
+    public Planet selectedPlanet;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject); 
@@ -41,6 +43,8 @@ public class PlanetariumControl : MonoBehaviour
     {
         if (scene.name == "Main")
         {
+            Physics.queriesHitTriggers = true;
+
             GameObject go = GameObject.Find("PhysicsSimulation"); 
             if (go is not null)
             {
@@ -78,12 +82,15 @@ public class PlanetariumControl : MonoBehaviour
             Body body = obj.AddComponent<Body>();
             body.Mass = Random.Range(1, 100);
             body.Velocity = new Vector3(0, 0, 0);
-
-            //obj.gameObject.AddComponent<PlanetGUI>();
-
             simulation.bodies.Add(body);
             orbitVisualizer.addBody(body);
 
+
+            Rigidbody rb = obj.AddComponent<Rigidbody>();
+            rb.isKinematic = true;
+            SphereCollider sphereCollider = obj.AddComponent<SphereCollider>();
+            sphereCollider.isTrigger = true;
+            sphereCollider.radius = planet.settings.planetRadius;
 
             if (planetSettings.mainScenePosition == Vector3.zero)
             {
