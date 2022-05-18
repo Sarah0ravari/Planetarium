@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class Body : MonoBehaviour {
     public float Mass = 1;
     public Vector3 Velocity;
-    public bool EnabledOrbitVisual;
+    public bool EnabledOrbitVisual = true;
     private const float G = 6.673e-11F;   // gravitational constant
     private Vector3 force;
+
     public void UpdateVelocity(float dt) {
-        Velocity += dt * force / Mass;
+        Velocity += (dt * force / Mass) * 1e9F;
     }
     public void UpdateVelocityX(float newx) {
         Velocity.z = newx;
@@ -32,7 +33,7 @@ public class Body : MonoBehaviour {
     }
 
     public void UpdatePosition(float dt) {
-        transform.position += dt * Velocity;
+        transform.position += dt * (Velocity * 1e-9F);
     }
 
     public float DistanceTo(Body b) {
@@ -53,6 +54,7 @@ public class Body : MonoBehaviour {
         float EPS = 3E4F;      // softening parameter (just to avoid infinities)
         Vector3 diff = b.transform.position - transform.position;
         float dist = DistanceTo(b);
+        if (dist == 0.0f) return;
         float F = (G * Mass * b.Mass) / (dist*dist + EPS*EPS);
         force += F * diff / dist;
     }

@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class PhysicsSimulation : MonoBehaviour {
     public bool Paused = true;
-    public float Dt = 100000000;
+    public float Dt = 100000;
+    public int StepsPerUpdate = 1000;
     public List<Body> bodies;
+    public PhysicsSimulation ps;
 
+    public void OnPlayPausePhysics(){
+        if(Paused == true){
+            Paused = false;
+        }else{
+            Paused = true;
+        }
+    }
     public static void AddForces(List<Body> bodies) {
         for (int i = 0; i < bodies.Count; i++) {
             bodies[i].ResetForce();
@@ -29,9 +38,11 @@ public class PhysicsSimulation : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (Paused) return; 
-        AddForces(bodies);
-        UpdateVelocities(bodies, Dt);
-        UpdatePositions(bodies, Dt);
+        if (Paused) return;
+        for (int i = 0; i < StepsPerUpdate; i++) {
+            AddForces(bodies);
+            UpdateVelocities(bodies, Dt);
+            UpdatePositions(bodies, Dt);
+        }
     }
 }
