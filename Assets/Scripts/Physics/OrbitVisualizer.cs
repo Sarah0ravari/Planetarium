@@ -33,10 +33,10 @@ public class OrbitVisualizer : MonoBehaviour {
             positionsByStep[i] = new Vector3[NumSteps];
         }
         for (int step = 0; step < NumSteps; step++) {
-            for (int i = 0; i < physicsInstance.StepsPerUpdate / 10; i++) {
+            for (int i = 0; i < physicsInstance.StepsPerUpdate / 1000; i++) {
                 PhysicsSimulation.AddForces(bodyCopies);
-                PhysicsSimulation.UpdateVelocities(bodyCopies, physicsInstance.Dt * 10);
-                PhysicsSimulation.UpdatePositions(bodyCopies, physicsInstance.Dt * 10);
+                PhysicsSimulation.UpdateVelocities(bodyCopies, physicsInstance.Dt * 1000);
+                PhysicsSimulation.UpdatePositions(bodyCopies, physicsInstance.Dt * 1000);
             }
             for (int body = 0; body < bodyCopies.Count; body++) {
                 positionsByStep[body][step] = bodyCopies[body].transform.position;
@@ -54,6 +54,7 @@ public class OrbitVisualizer : MonoBehaviour {
         for (int body = 0; body < bodyCopies.Count; body++) {
             bodyCopies[body].transform.position = bodies[body].transform.position;
             bodyCopies[body].Velocity = bodies[body].Velocity;
+            bodyCopies[body].Mass = bodies[body].Mass;
         }
     }
 

@@ -3592,8 +3592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92893b0fc544fc10994db04df195d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enabled: 0
-  NumSteps: 0
+  Enabled: 1
+  NumSteps: 1000
 --- !u!1 &729914297
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,8 +5243,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1002206650}
+  m_Children: []
   m_Father: {fileID: 2121338607}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10409,6 +10408,7 @@ RectTransform:
   - {fileID: 863889238}
   - {fileID: 1211209104}
   - {fileID: 2133289757}
+  - {fileID: 1028725903}
   m_Father: {fileID: 2064313098}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
