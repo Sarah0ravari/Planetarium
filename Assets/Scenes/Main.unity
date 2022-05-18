@@ -3467,9 +3467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Paused: 1
-  Dt: 10000000
+  Dt: 100000
   StepsPerUpdate: 1000
   bodies: []
+  ps: {fileID: 701492041}
 --- !u!4 &701492042
 Transform:
   m_ObjectHideFlags: 0
@@ -3497,8 +3498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92893b0fc544fc10994db04df195d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enabled: 0
-  NumSteps: 0
+  Enabled: 1
+  NumSteps: 1000
 --- !u!1 &729914297
 GameObject:
   m_ObjectHideFlags: 0
@@ -4914,7 +4915,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996841588}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 --- !u!1 &1002206649
+=======
+--- !u!1 &1004296321
+>>>>>>> main
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4922,28 +4927,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1002206650}
   - component: {fileID: 1002206652}
   - component: {fileID: 1002206651}
   m_Layer: 5
   m_Name: Text (TMP)
+=======
+  - component: {fileID: 1004296322}
+  - component: {fileID: 1004296325}
+  - component: {fileID: 1004296324}
+  - component: {fileID: 1004296323}
+  m_Layer: 5
+  m_Name: Placeholder
+>>>>>>> main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!224 &1002206650
+=======
+--- !u!224 &1004296322
+>>>>>>> main
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1002206649}
+=======
+  m_GameObject: {fileID: 1004296321}
+>>>>>>> main
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 1028725903}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4953,12 +4976,47 @@ RectTransform:
   m_SizeDelta: {x: 160, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002206651
+=======
+  m_Father: {fileID: 1450624131}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1004296323
+>>>>>>> main
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1002206649}
+=======
+  m_GameObject: {fileID: 1004296321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1004296324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004296321}
+>>>>>>> main
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -4972,7 +5030,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   m_text: Play/Pause Physics
+=======
+  m_text: Enter text...
+>>>>>>> main
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4981,8 +5043,13 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
+<<<<<<< HEAD
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+=======
+    rgba: 2150773298
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5}
+>>>>>>> main
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4999,15 +5066,26 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
+<<<<<<< HEAD
   m_fontSize: 20
   m_fontSizeBase: 20
+=======
+  m_fontSize: 14
+  m_fontSizeBase: 14
+>>>>>>> main
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
+<<<<<<< HEAD
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
+=======
+  m_fontStyle: 2
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+>>>>>>> main
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5015,13 +5093,21 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
+<<<<<<< HEAD
   m_enableWordWrapping: 1
+=======
+  m_enableWordWrapping: 0
+>>>>>>> main
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+<<<<<<< HEAD
   m_enableExtraPadding: 0
+=======
+  m_enableExtraPadding: 1
+>>>>>>> main
   checkPaddingRequired: 0
   m_isRichText: 1
   m_parseCtrlCharacters: 1
@@ -5041,13 +5127,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
 --- !u!222 &1002206652
+=======
+--- !u!222 &1004296325
+>>>>>>> main
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1002206649}
+=======
+  m_GameObject: {fileID: 1004296321}
+>>>>>>> main
   m_CullTransparentMesh: 1
 --- !u!1 &1028725902
 GameObject:
@@ -5079,8 +5173,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1002206650}
+  m_Children: []
   m_Father: {fileID: 2121338607}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5133,9 +5226,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 701492040}
-        m_TargetAssemblyTypeName: SkyBox, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 701492041}
+        m_TargetAssemblyTypeName: PhysicsSimulation, Assembly-CSharp
+        m_MethodName: OnPlayPausePhysics
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10152,7 +10245,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 50
+  m_Spacing: 125
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
