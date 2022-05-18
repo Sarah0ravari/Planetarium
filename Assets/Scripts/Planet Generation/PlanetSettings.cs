@@ -18,6 +18,8 @@ public class PlanetSettings
 
     public NoiseSettings[] noiseSettings;
 
+    public Vector3 mainScenePosition;
+
     public PlanetSettings()
     {
         this.noiseSettings = new NoiseSettings[]
@@ -46,6 +48,8 @@ public class PlanetSettings
         this.alphaKeys[1].time = 1.0f;
 
         this.gradient.SetKeys(this.colorKeys, this.alphaKeys);
+
+        mainScenePosition = Vector3.zero;
     }
 
     [Serializable]

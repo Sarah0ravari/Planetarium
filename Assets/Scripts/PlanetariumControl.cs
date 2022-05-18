@@ -13,6 +13,7 @@ public class PlanetariumControl : MonoBehaviour
     public Material atmosphereMaterial;
 
     public ArrayList planetSettings;
+    private ArrayList planets;
     public string newPlanetSettings;
 
     public Vector3 cameraPosition;
@@ -36,6 +37,7 @@ public class PlanetariumControl : MonoBehaviour
     public PlanetariumControl()
     {
         planetSettings = new ArrayList();
+        planets = new ArrayList();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -56,6 +58,7 @@ public class PlanetariumControl : MonoBehaviour
 
             Camera.main.transform.position = cameraPosition;
             Camera.main.transform.rotation = cameraRotation;
+
             CreatePlanets();
         }
     }
@@ -67,28 +70,45 @@ public class PlanetariumControl : MonoBehaviour
             PlanetSettings planetSettings = JsonUtility.FromJson<PlanetSettings>(planetJSON);
 
             GameObject obj = new GameObject();
-            obj.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 10;
+            obj.name = "Planet";
             Planet planet = obj.AddComponent<Planet>();
             planet.settings = planetSettings;
             planet.material = this.planetMaterial;
             planet.atmosphereMaterial = this.atmosphereMaterial;
+            planets.Add(planet);
 
             Body body = obj.AddComponent<Body>();
             body.Mass = Random.Range(1, 100);
-            body.Velocity = new Vector3(0.0000001f, 0, 0);
+            body.Velocity = new Vector3(0, 0, 0);
 
-            obj.gameObject.AddComponent<SaveIsEasyComponent>();
-            obj.gameObject.AddComponent<ChangeLookAtTarget>();
-            obj.gameObject.AddComponent<RotateAround>();
-            obj.gameObject.AddComponent<PlanetGUI>();
+            //obj.gameObject.AddComponent<PlanetGUI>();
 
             simulation.bodies.Add(body);
 
-            planet.GenerateColors();
-
-            //Old View Scripts, disable when LookAt script works
-            var viewControls = Camera.main.GetComponent<GlobeViewControls>();
-            viewControls.globe = obj.transform;
+            if (planetSettings.mainScenePosition == Vector3.zero)
+            {
+                obj.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 10;
+            }
+            else
+            {
+                obj.transform.position = planetSettings.mainScenePosition;
+            }
         }
+    }
+
+    public void SavePlanetPositions()
+    {
+        cameraPosition = Camera.main.transform.position;
+        cameraRotation = Camera.main.transform.rotation;
+
+        int index = 0;
+        foreach (Planet planet in planets)
+        {
+            planet.settings.mainScenePosition = planet.transform.position;
+            string planetJSON = JsonUtility.ToJson(planet.settings);
+            planetSettings[index] = planetJSON;
+            index++;
+        }
+        planets.Clear();
     }
 }
