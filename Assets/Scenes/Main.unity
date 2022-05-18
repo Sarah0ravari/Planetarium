@@ -4392,7 +4392,7 @@ GameObject:
   - component: {fileID: 897235917}
   - component: {fileID: 897235921}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Edit Planet Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8305,7 +8305,7 @@ GameObject:
   - component: {fileID: 1695777928}
   - component: {fileID: 1695777927}
   m_Layer: 0
-  m_Name: PlanterEditor
+  m_Name: PlanetEditor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
