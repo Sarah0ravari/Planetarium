@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Body : MonoBehaviour {
     public float Mass = 1;
@@ -8,7 +9,6 @@ public class Body : MonoBehaviour {
     public bool EnabledOrbitVisual;
     private const float G = 6.673e-11F;   // gravitational constant
     private Vector3 force;
-
     public void UpdateVelocity(float dt) {
         Velocity += dt * force / Mass;
     }
@@ -20,6 +20,15 @@ public class Body : MonoBehaviour {
     }
     public void UpdateVelocityZ(float newz) {
         Velocity.z = newz;
+    }
+    public float getXVelocity(){
+        return Velocity.x;
+    }
+    public float getYVelocity(){
+        return Velocity.y;
+    }
+    public float getZVelocity(){
+        return Velocity.z;
     }
 
     public void UpdatePosition(float dt) {

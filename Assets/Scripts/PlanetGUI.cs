@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlanetGUI : MonoBehaviour
 {
+    private bool PGUI = false;
     public Canvas editPlantCanvas;
     void Start(){
         editPlantCanvas.enabled = false;
