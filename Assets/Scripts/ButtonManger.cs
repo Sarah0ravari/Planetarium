@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManger : MonoBehaviour
 {
+    public string Url;
     public void Button(string solar){
         SceneManager.LoadScene(solar);
     }
@@ -13,5 +14,11 @@ public class ButtonManger : MonoBehaviour
     }  
     public void Button2() {  
         Application.Quit(); 
+    }
+    public void Back(string Menu) {  
+        SceneManager.LoadScene(Menu);  
+    }  
+    public void Open() {
+        Application.OpenURL(Url);
     }
 }
