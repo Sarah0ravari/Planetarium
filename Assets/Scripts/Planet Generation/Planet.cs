@@ -58,6 +58,7 @@ public class Planet : MonoBehaviour
         athmo = GameObject.CreatePrimitive(PrimitiveType.Sphere).transform;
         athmo.transform.parent = transform;
         athmo.transform.localScale = Vector3.one * this.settings.planetRadius * 2.05f;
+        athmo.transform.localPosition = Vector3.zero;
         athmo.GetComponent<MeshRenderer>().material = atmosphereMaterial;
         athmo.GetComponent<MeshRenderer>().material.mainTexture = athmo_texture;
 
@@ -99,6 +100,11 @@ public class Planet : MonoBehaviour
         foreach (TerrainFace face in terrainFaces)
         {
             face.ConstructMesh();
+        }
+
+        foreach (MeshFilter meshFilter in meshFilters)
+        {
+            meshFilter.transform.localPosition = Vector3.zero;
         }
 
         colorGenerator.UpdateElevation(shapeGenerator.elevationMinMax);
