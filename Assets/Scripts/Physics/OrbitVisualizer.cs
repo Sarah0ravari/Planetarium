@@ -12,7 +12,10 @@ public class OrbitVisualizer : MonoBehaviour {
 
     public void addBody(Body body) {
         bodies.Add(body);
-        Body bodyCopy = Object.Instantiate(body.gameObject).GetComponent<Body>();
+        Body bodyCopy = new GameObject().AddComponent<Body>();
+        bodyCopy.Velocity = body.Velocity;
+        bodyCopy.Mass = body.Mass;
+        bodyCopy.gameObject.transform.position = body.gameObject.transform.position;
         bodyCopies.Add(bodyCopy);
         LineRenderer line = bodyCopy.gameObject.AddComponent<LineRenderer>();
         line.startWidth = 0.1f;
@@ -30,10 +33,10 @@ public class OrbitVisualizer : MonoBehaviour {
             positionsByStep[i] = new Vector3[NumSteps];
         }
         for (int step = 0; step < NumSteps; step++) {
-            for (int i = 0; i < physicsInstance.StepsPerUpdate; i++) {
+            for (int i = 0; i < physicsInstance.StepsPerUpdate / 10; i++) {
                 PhysicsSimulation.AddForces(bodyCopies);
-                PhysicsSimulation.UpdateVelocities(bodyCopies, physicsInstance.Dt);
-                PhysicsSimulation.UpdatePositions(bodyCopies, physicsInstance.Dt);
+                PhysicsSimulation.UpdateVelocities(bodyCopies, physicsInstance.Dt * 10);
+                PhysicsSimulation.UpdatePositions(bodyCopies, physicsInstance.Dt * 10);
             }
             for (int body = 0; body < bodyCopies.Count; body++) {
                 positionsByStep[body][step] = bodyCopies[body].transform.position;
