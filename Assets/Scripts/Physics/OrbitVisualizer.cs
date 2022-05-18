@@ -10,6 +10,8 @@ public class OrbitVisualizer : MonoBehaviour {
     private Vector3[][] positionsByStep;
     private PhysicsSimulation physicsInstance;
 
+    public Material lineMaterial;
+
     public void addBody(Body body) {
         bodies.Add(body);
         Body bodyCopy = new GameObject().AddComponent<Body>();
@@ -22,8 +24,8 @@ public class OrbitVisualizer : MonoBehaviour {
         line.endWidth = 0.1f;
         line.startColor = Color.white;
         line.endColor = Color.white;
-        Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
-        line.material = whiteDiffuseMat;
+        //Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
+        line.material = lineMaterial;
     }
 
     void FixedUpdate() {

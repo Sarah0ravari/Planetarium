@@ -14,10 +14,10 @@ public class Body : MonoBehaviour {
         Velocity += (dt * force / Mass) * 1e9F;
     }
     public void UpdateVelocityX(float newx) {
-        Velocity.z = newx;
+        Velocity.x = newx;
     }
     public void UpdateVelocityY(float newy) {
-        Velocity.z = newy;
+        Velocity.y = newy;
     }
     public void UpdateVelocityZ(float newz) {
         Velocity.z = newz;
