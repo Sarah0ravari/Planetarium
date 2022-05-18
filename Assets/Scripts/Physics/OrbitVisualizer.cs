@@ -33,7 +33,7 @@ public class OrbitVisualizer : MonoBehaviour {
             positionsByStep[i] = new Vector3[NumSteps];
         }
         for (int step = 0; step < NumSteps; step++) {
-            for (int i = 0; i < physicsInstance.StepsPerUpdate / 1000; i++) {
+            for (int i = 0; i < Mathf.Max(physicsInstance.StepsPerUpdate / 1000, 1); i++) {
                 PhysicsSimulation.AddForces(bodyCopies);
                 PhysicsSimulation.UpdateVelocities(bodyCopies, physicsInstance.Dt * 1000);
                 PhysicsSimulation.UpdatePositions(bodyCopies, physicsInstance.Dt * 1000);
