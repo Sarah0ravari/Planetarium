@@ -45,4 +45,32 @@ public class PhysicsSimulation : MonoBehaviour {
             UpdatePositions(bodies, Dt);
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Paused = !Paused;
+        }
+    }
+
+    public void onDTChange(string dt)
+    {
+        try
+        {
+            float newDT = float.Parse(dt);
+            Dt = newDT;
+        }
+        catch { }
+    }
+
+    public void onStepsChange(string steps)
+    {
+        try
+        {
+            int newSteps = int.Parse(steps);
+            StepsPerUpdate = newSteps;
+        }
+        catch { }
+    }
 }

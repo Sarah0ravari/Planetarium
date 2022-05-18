@@ -20,6 +20,7 @@ public class PlanetariumControl : MonoBehaviour
     public Vector3 cameraPosition;
     public Quaternion cameraRotation;
 
+    public VelocityMassChanger velocityMassChanger;
     public Planet selectedPlanet;
 
     private void Awake()
@@ -117,5 +118,17 @@ public class PlanetariumControl : MonoBehaviour
             index++;
         }
         planets.Clear();
+    }
+
+    public void SetSelectedPlanet(Planet planet)
+    {
+        if (planet is not null)
+        {
+            selectedPlanet = planet;
+            if (velocityMassChanger != null)
+            {
+                velocityMassChanger.updateDisplayedValues();
+            }
+        }
     }
 }

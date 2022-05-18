@@ -190,9 +190,9 @@ public class Planet : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            PlanetariumControl.Instance.selectedPlanet = this;
+            PlanetariumControl.Instance.SetSelectedPlanet(this);
         }
     }
 
